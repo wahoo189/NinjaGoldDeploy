@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ninja Gold!!!</title>
+  </head>
+  <body>
+    Your Gold: <input type='text' name='total_gold' value='{{request.session.total_gold}}'> <a href="/reset"><button>Reset</button></a>
+
+    <div class="choice">
+      <form class="" action="/process_gold" method="post">
+        {%csrf_token%}
+        Farm
+        (earns 10-20 Gold)
+        <input type="hidden" name="choice" value="farm">
+        <input type="submit" name="name" value="Find Gold!">
+      </form>
+    </div>
+    <div class="choice">
+      <form class="" action="/process_gold" method="post">
+        {%csrf_token%}
+        Cave
+        (earns 5-10 Gold)
+        <input type="hidden" name="choice" value="cave">
+        <input type="submit" name="name" value="Find Gold!">
+      </form>
+    </div>
+    <div class="choice">
+      <form class="" action="/process_gold" method="post">
+        {%csrf_token%}
+        House
+        (earns 2-5 Gold)
+        <input type="hidden" name="choice" value="house">
+        <input type="submit" name="name" value="Find Gold!">
+      </form>
+    </div>
+    <div class="choice">
+      <form class="" action="/process_gold" method="post">
+        {%csrf_token%}
+        Casino
+        (earns/takes somewhere between +/- 50 Gold)
+        <input type="hidden" name="choice" value="casino">
+        <input type="submit" name="name" value="Find Gold!">
+      </form>
+    </div>
+    Activities:</br>
+    <textarea name="activities" rows="20" cols="80">{{request.session.activity}}</textarea>
+  </body>
+</html>
